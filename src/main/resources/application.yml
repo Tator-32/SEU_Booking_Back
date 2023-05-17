@@ -1,0 +1,53 @@
+server:
+  port: 8088
+  servlet:
+    session:
+      #Session???????5???????????30??
+      timeout: 18000
+spring:
+  resources:
+    static-locations: classpath:static/,file:static/
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:mysql://10.208.77.29:3306/SEU_Booking_DB?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  freemarker:
+    # ???????
+    suffix: .ftl
+    # ??????
+    content-type: text/html
+    # ????????
+    charset: UTF-8
+    # ??????
+    cache: true
+    settings:
+      number_format: 0.##
+
+
+
+mybatis-plus:
+  type-aliases-package: com.example.NetBookShop.entity
+  configuration:
+    call-setters-on-nulls: false
+    #????
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    banner: true
+    db-config:
+      #????  0:"???ID??", 1:"????ID",2:"????ID (??????ID)", 3:"????ID UUID";
+      id-type: uuid
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+
+
+logging:
+  level:
+    root: error #????DEBUG,INFO,WARN,ERROR
