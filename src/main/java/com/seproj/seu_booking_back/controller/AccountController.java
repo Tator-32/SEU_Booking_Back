@@ -1,29 +1,28 @@
 package com.seproj.seu_booking_back.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.seproj.seu_booking_back.entity.UserAccount;
+import com.seproj.seu_booking_back.service.IUserAccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.SecureRandom;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import com.aliyun.auth.credentials.Credential;
 import com.aliyun.auth.credentials.provider.StaticCredentialProvider;
 import com.aliyun.core.http.HttpClient;
-import com.aliyun.core.http.HttpMethod;
 import com.aliyun.core.http.ProxyOptions;
 import com.aliyun.httpcomponent.httpclient.ApacheAsyncHttpClientBuilder;
 import com.aliyun.sdk.service.dysmsapi20170525.models.*;
 import com.aliyun.sdk.service.dysmsapi20170525.*;
 import com.google.gson.Gson;
-import darabonba.core.RequestConfiguration;
 import darabonba.core.client.ClientOverrideConfiguration;
-import darabonba.core.utils.CommonUtil;
-import darabonba.core.TeaPair;
 
 //import javax.net.ssl.KeyManager;
 //import javax.net.ssl.X509TrustManager;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.X509TrustManager;
-import javax.validation.constraints.Null;
 import java.net.InetSocketAddress;
 import java.time.Duration;
 import java.util.*;
@@ -34,6 +33,11 @@ import java.util.concurrent.ExecutionException;
 @CrossOrigin
 @RequestMapping("/")
 public class AccountController {
+    private IUserAccountService iUserAccountService;
+
+    public AccountController(IUserAccountService iUserAccountService) {
+        this.iUserAccountService = iUserAccountService;
+    }
 
     @PostMapping("/account")
     public String Login(@RequestBody Map data) throws Exception {
@@ -42,6 +46,26 @@ public class AccountController {
         String loginVal = data.get("loginVal").toString();
         String loginType = data.get("loginType").toString();
         if(Objects.equals(loginType, "Phone")) {
+            // java.time.LocalDateTime time = null;
+            try{
+                QueryWrapper<UserAccount> queryWrapper = new QueryWrapper<>();
+                queryWrapper.select("ID").eq("phoneNum", loginVal);
+                Map<String, Object> result = iUserAccountService.getMap(queryWrapper);
+                if(result == null) {
+                    System.out.println("New Account Created");
+                    UserAccount userAccount = new UserAccount();
+                    userAccount.setUserName("User");
+                    userAccount.setRealName("User");
+                    userAccount.setPhoneNum(loginVal);
+                    userAccount.setEmailAddr("No Email Address");
+                    Date time = new Date(System.currentTimeMillis());
+                    userAccount.setBirthDate(time.toString());
+                    System.out.println(userAccount);
+                    iUserAccountService.save(userAccount);
+                }
+            } catch(Exception e) {
+
+            }
             // LoginPhone(loginVal, code);
         } else if (Objects.equals(loginType, "Mail")) {
             LoginMail(loginVal, code);

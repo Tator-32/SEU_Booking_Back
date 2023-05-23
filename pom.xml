@@ -156,39 +156,16 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- MyBatis 自动生成代码的插件 -->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-                <dependencies>
-                    <dependency>
-                        <groupId> mysql</groupId>
-                        <artifactId> mysql-connector-java</artifactId>
-                        <version> 5.1.39</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.mybatis.generator</groupId>
-                        <artifactId>mybatis-generator-core</artifactId>
-                        <version>1.3.5</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <id>Generate MyBatis Artifacts</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <version>1.3.6</version>
                 <configuration>
-                    <!--允许移动生成的文件 -->
+                    <!-- 配置文件的路径 -->
+                    <configurationFile>generatorConfig.xml</configurationFile>
                     <verbose>true</verbose>
-                    <!-- 是否覆盖 -->
                     <overwrite>true</overwrite>
-                    <!-- 自动生成的配置 -->
-                    <configurationFile>
-                        src/main/resources/mybatis-generator.xml</configurationFile>
                 </configuration>
             </plugin>
         </plugins>

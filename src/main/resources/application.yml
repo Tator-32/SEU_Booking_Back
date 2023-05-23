@@ -10,7 +10,7 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://10.208.77.29:3306/SEU_Booking_DB?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
+    url: jdbc:mysql://10.208.77.29:3306/SEU_Booking_Project?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=CONVERT_TO_NULL
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
