@@ -11,7 +11,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Tator
- * @since 2023-05-21
+ * @since 2023-05-24
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -20,20 +20,31 @@ public class HotelInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * ID for hotel.
-     */
-    private String hotelId;
-
-    /**
-     * Name of hotel.
-     */
     private String hotelName;
 
-    /**
-     * Address of hotel.
-     */
     private String hotelAddress;
+
+    private String hotelFeature;
+
+    private String commentLevel;
+
+    private String commentNumber;
+
+    private String commentScore;
+
+    private String imgUrl1;
+
+    private String imgUrl2;
+
+    private String imgUrl3;
+
+    private String imgUrl4;
+
+    private String imgUrl5;
+
+    private String imgUrl6;
+
+    private String imgUrl7;
 
 
 }

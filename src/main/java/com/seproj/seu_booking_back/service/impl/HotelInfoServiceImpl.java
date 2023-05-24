@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Tator
- * @since 2023-05-21
+ * @since 2023-05-24
  */
 @Service
 public class HotelInfoServiceImpl extends ServiceImpl<HotelInfoMapper, HotelInfo> implements IHotelInfoService {

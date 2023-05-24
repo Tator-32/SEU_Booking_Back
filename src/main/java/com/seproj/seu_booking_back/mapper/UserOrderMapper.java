@@ -1,6 +1,6 @@
 package com.seproj.seu_booking_back.mapper;
 
-import com.seproj.seu_booking_back.entity.UserAccount;
+import com.seproj.seu_booking_back.entity.UserOrder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author Tator
  * @since 2023-05-24
  */
-public interface UserAccountMapper extends BaseMapper<UserAccount> {
+public interface UserOrderMapper extends BaseMapper<UserOrder> {
 
 }

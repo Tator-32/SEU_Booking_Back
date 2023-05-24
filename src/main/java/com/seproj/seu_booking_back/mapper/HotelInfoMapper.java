@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author Tator
- * @since 2023-05-21
+ * @since 2023-05-24
  */
 public interface HotelInfoMapper extends BaseMapper<HotelInfo> {
 

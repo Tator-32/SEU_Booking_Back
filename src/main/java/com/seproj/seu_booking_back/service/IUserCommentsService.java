@@ -1,6 +1,6 @@
 package com.seproj.seu_booking_back.service;
 
-import com.seproj.seu_booking_back.entity.HotelInfo;
+import com.seproj.seu_booking_back.entity.UserComments;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Tator
  * @since 2023-05-24
  */
-public interface IHotelInfoService extends IService<HotelInfo> {
+public interface IUserCommentsService extends IService<UserComments> {
 
 }

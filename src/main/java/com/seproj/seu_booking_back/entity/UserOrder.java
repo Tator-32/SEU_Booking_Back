@@ -1,6 +1,5 @@
 package com.seproj.seu_booking_back.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -19,27 +18,22 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class UserAccount implements Serializable {
+public class UserOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "ID", type = IdType.AUTO)
+    @TableId("ID")
     private Integer id;
 
-    @TableField("realName")
-    private String realName;
+    private String hotel;
 
-    @TableField("userName")
-    private String userName;
+    private String roomType;
 
-    @TableField("emailAddr")
-    private String emailAddr;
+    @TableField("timeIn")
+    private String timeIn;
 
-    @TableField("phoneNum")
-    private String phoneNum;
-
-    @TableField("birthDate")
-    private String birthDate;
+    @TableField("timeOut")
+    private String timeOut;
 
 
 }
