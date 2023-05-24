@@ -5,6 +5,14 @@ server:
       #Session???????5???????????30??
       timeout: 18000
 spring:
+
+  mail:
+    email: 617661369@qq.com
+    host: smtp.qq.com
+    port: 465
+    username: 617661369
+    password: swzgzczlysyabdbj
+
   resources:
     static-locations: classpath:static/,file:static/
   thymeleaf:
